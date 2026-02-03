@@ -1,0 +1,14 @@
+services:
+  # Node.js Express application
+  backend-nodejs:
+    build: ./backend
+    container_name: backend-nodejs
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
